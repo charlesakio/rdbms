@@ -1,0 +1,46 @@
+/* DROP TABLES */
+DROP TABLE employee;
+DROP TABLE prospect;
+DROP TABLE servwork;
+DROP TABLE servinv;
+DROP TABLE invoption;
+DROP TABLE baseoption;
+DROP TABLE options;
+DROP TABLE saleinv;
+DROP TABLE car;
+DROP TABLE customer;
+
+/*CREATE TABLES*/
+CREATE TABLE CUSTOMER
+(CNAME	  CHAR(20) PRIMARY KEY,
+ CSTREET  CHAR(20) NOT NULL,
+ CCITY	  CHAR(20) NOT NULL,
+ CPROV	  CHAR(20) NOT NULL,
+ CPOSTAL  CHAR(10),
+ CHPHONE  CHAR(13),
+ CBPHONE  CHAR(13));
+
+CREATE TABLE CAR
+(SERIAL	      CHAR(8) PRIMARY KEY,
+ CNAME	      CHAR(20) REFERENCES CUSTOMER(CNAME),
+ MAKE	      CHAR(10) NOT NULL,
+ MODEL	      CHAR(8) NOT NULL,
+ CYEAR	      CHAR(4) NOT NULL,
+ COLOR	      CHAR(12) NOT NULL,
+ TRIM	      CHAR(16) NOT NULL,
+ ENGINETYPE   CHAR(10) NOT NULL,
+ PURCHINV     CHAR(6),
+ PURCHDATE    DATE,
+ PURCHFROM    CHAR(12),
+ PURCHCOST    NUMBER(9,2),
+ FREIGHTCOST  NUMBER(7,2),
+ TOTALCOST    NUMBER(9,2),
+ LISTPRICE    NUMBER(9,2));
+
+CREATE TABLE SALEINV
+(SALEINV      CHAR(6) PRIMARY KEY,
+ CNAME	      CHAR(20) NOT NULL REFERENCES CUSTOMER (CNAME),
+ SALESMAN     CHAR(20),
+ SALEDATE     DATE NOT NULL CHECK (SALEDATE >
+Jove (Text)   [create_table.sql:3]  "create_table.sql"  -  ~/sql                                                                                                                                                          (23:02)
+
